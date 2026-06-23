@@ -1,27 +1,29 @@
-from modelos import Produto, listar_produtos
+from modelos import conectar
 
 def exibir_menu():
-    print("==========")
-    print("MENU DE PRODUTOS")
+    print("\n=== DIÁRIO DE CLASSE ===")
+    print("1 - Cadastrar aluno")
+    print("2 - Listar alunos")
+    print("3 - Buscar aluno por ID")
     print("0 - Sair")
-    print("1 - Cadastrar")
-    print("2 - Listar")
-    print("==========")
-
 
 def cadastrar():
     nome = input("Digite o nome: ")
-    preco = float(input("Digite o preço: "))
-    categoria = input("Digite a categoria: ")
+    nota = float(input("Digite a nota: "))
+    
 
     produto = Produto(nome, preco, categoria)
     produto.salvar()
 
-def mostrar():
-    for produto in listar_produtos():
-        produto.exibir()
+def listar_alunos():
+     for aluno in alunos:
+       print(f"ID: {aluno[0]} | Nome: {aluno[1]} | Média: {aluno[2]}")
+
+    
+def buscar_id():
 
 while True:
+    exibir_menu()
     opcao = input("Digite uma opção: ")
 
     if opcao == "0":
@@ -29,6 +31,8 @@ while True:
     elif opcao == "1":
         cadastrar()
     elif opcao == "2":
-        mostrar()
+        listar_alunos()
+    elif opcao == "3":
+        buscar_id()
     else:
         print("Opção inválida! tente novamente. ")
